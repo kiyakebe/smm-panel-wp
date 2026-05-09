@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMM Panel For WordPress – Premium WP Themes &amp; Plugins</title>
+    <meta name="description"
+        content="Power your SMM Panel with premium WordPress themes and plugins. Crafted for speed, security, and seamless integration." />
+    <link rel="icon" type="image/x-icon" href="/smm panel wordpress favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* 
+           NUCLEAR CSS ISOLATION WRAP
+           Designed to prevent WordPress/Elementor theme bleed
+        */
+        .sp-isolation-wrap,
+        .sp-isolation-wrap * {
+            all: revert;
+            box-sizing: border-box !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            outline: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            text-transform: none !important;
+            text-decoration: none !important;
+            filter: none !important;
+            mix-blend-mode: normal !important;
+        }
+
+        .sp-isolation-wrap a {
+            text-decoration: none !important;
+            color: inherit !important;
+            cursor: pointer !important;
+        }
+
+        .sp-isolation-wrap img {
+            max-width: 100% !important;
+            display: block !important;
+        }
+
+        .sp-isolation-wrap button {
+            cursor: pointer !important;
+            border: none !important;
+            background: none !important;
+            font: inherit !important;
+        }
+
+        .sp-isolation-wrap .sp-main-container {
+            --sp-bg: hsl(228 33% 7%);
+            --sp-fg: hsl(220 20% 92%);
+            --sp-primary: hsl(270 80% 60%);
+            --sp-primary-fg: hsl(0 0% 100%);
+            --sp-muted-fg: hsl(220 15% 55%);
+            --sp-border: hsl(228 25% 18%);
+            --sp-bg-alt: hsl(228 33% 9.5%);
+
+            background-color: var(--sp-bg) !important;
+            color: var(--sp-fg) !important;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif !important;
+            overflow-x: hidden !important;
+            min-height: 100vh !important;
+            width: 100% !important;
+            display: block !important;
+            -webkit-font-smoothing: antialiased !important;
+        }
+
+        /* FORCE TEXT COLOR ON ALL CHILDREN */
+        .sp-isolation-wrap .sp-main-container :is(h1, h2, h3, h4, h5, h6, p, span, div, a, li) {
+            color: var(--sp-fg) !important;
+        }
+
+        .sp-isolation-wrap :is(h1, h2, h3, h4, h5, h6) {
+            font-family: 'Outfit', sans-serif !important;
+            display: block !important;
+        }
+
+        .sp-container {
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 0 1rem !important;
+            display: block !important;
+        }
+
+        .sp-text-highlight {
+            color: var(--sp-primary) !important;
+            font-weight: 800 !important;
+            font-family: 'Outfit', sans-serif !important;
+        }
+
+        /* Solid-purple CTA button */
+        .sp-btn-cta {
+            display: inline-block !important;
+            padding: 1rem 2rem !important;
+            border-radius: 0.75rem !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            font-family: 'Outfit', sans-serif !important;
+            letter-spacing: .02em !important;
+            color: var(--sp-primary-fg) !important;
+            background-color: var(--sp-primary) !important;
+            box-shadow: 0 8px 28px hsl(270 80% 60% / .35) !important;
+            transition: transform .2s, box-shadow .2s, background .2s !important;
+        }
+
+        .sp-btn-cta:hover {
+            transform: scale(1.05) !important;
+            background-color: hsl(270 80% 66%) !important;
+            box-shadow: 0 12px 40px hsl(270 80% 60% / .45) !important;
+        }
+
+        .sp-btn-cta:active {
+            transform: scale(.97) !important;
+        }
+
+        .sp-glow-card {
+            background: linear-gradient(145deg, hsl(228 30% 12%), hsl(228 30% 9%)) !important;
+            border: 1px solid hsl(270 80% 60% / .15) !important;
+            box-shadow: 0 4px 30px hsl(270 80% 60% / .06) !important;
+            transition: border-color .3s, box-shadow .3s, transform .3s !important;
+            display: block !important;
+        }
+
+        .sp-glow-card:hover {
+            border-color: hsl(270 80% 60% / .35) !important;
+            box-shadow: 0 8px 40px hsl(270 80% 60% / .12) !important;
+            transform: translateY(-6px) !important;
+        }
+
+        .sp-glow-border {
+            border: 1px solid hsl(270 80% 60% / .3) !important;
+            box-shadow: 0 0 20px hsl(270 80% 60% / .08), inset 0 0 20px hsl(270 80% 60% / .03) !important;
+        }
+
+        .sp-dot-pattern {
+            background-image: radial-gradient(hsl(270 80% 60% / .15) 1px, transparent 1px) !important;
+            background-size: 20px 20px !important;
+        }
+
+        /* ---------- animations ---------- */
+        @keyframes sp-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes sp-fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes sp-grid-drift {
+            0% {
+                transform: perspective(600px) rotateX(42deg) translateY(0);
+            }
+
+            100% {
+                transform: perspective(600px) rotateX(42deg) translateY(40px);
+            }
+        }
+
+        @keyframes sp-pulse-ring {
+
+            0%,
+            100% {
+                opacity: .18;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: .32;
+                transform: translate(-50%, -50%) scale(1.06);
+            }
+        }
+
+        @keyframes sp-cfa {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-2deg);
+            }
+
+            50% {
+                transform: translateY(-18px) rotate(-2deg);
+            }
+        }
+
+        @keyframes sp-cfb {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(3deg);
+            }
+
+            50% {
+                transform: translateY(-14px) rotate(3deg);
+            }
+        }
+
+        @keyframes sp-cfc {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-1deg);
+            }
+
+            50% {
+                transform: translateY(-22px) rotate(-1deg);
+            }
+        }
+
+        @keyframes sp-cfd {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(2deg);
+            }
+
+            50% {
+                transform: translateY(-16px) rotate(2deg);
+            }
+        }
+
+        .sp-floating {
+            animation: sp-float 6s ease-in-out infinite !important;
+        }
+
+        .sp-floating-delay {
+            animation: sp-float 6s ease-in-out 2s infinite !important;
+        }
+
+        .sp-floating-slow {
+            animation: sp-float 8s ease-in-out 1s infinite !important;
+        }
+
+        .sp-fade-up {
+            animation: sp-fade-up .7s ease-out both !important;
+        }
+
+        .sp-fade-up-1 {
+            animation: sp-fade-up .7s .1s ease-out both !important;
+        }
+
+        .sp-fade-up-2 {
+            animation: sp-fade-up .7s .2s ease-out both !important;
+        }
+
+        /* ---------- NAVBAR ---------- */
+        .sp-navbar {
+            position: fixed !important;
+            top: .8rem !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: min(1200px, calc(100% - 1.5rem)) !important;
+            z-index: 50 !important;
+            border: 1px solid hsl(270 80% 60% / .28) !important;
+            border-radius: 9999px !important;
+            backdrop-filter: blur(20px) !important;
+            background-color: hsl(228 33% 7% / .78) !important;
+            box-shadow: 0 12px 36px hsl(270 80% 60% / .12) !important;
+            display: block !important;
+        }
+
+        .sp-navbar-inner {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: .65rem 1.15rem !important;
+        }
+
+        .sp-brand {
+            display: flex !important;
+            align-items: center !important;
+            gap: .5rem !important;
+        }
+
+        .sp-brand-icon {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: .5rem !important;
+            background: transparent !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 4px 16px hsl(270 80% 60% / .4) !important;
+            overflow: hidden !important;
+        }
+
+        .sp-brand-icon img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: inherit !important;
+            display: block !important;
+        }
+
+        .sp-brand-name {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 1.2rem !important;
+        }
+
+        .sp-nav-links {
+            display: flex !important;
+            align-items: center !important;
+            gap: 2rem !important;
+        }
+
+        .sp-nav-links a {
+            font-size: .875rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: .1em !important;
+            color: var(--sp-muted-fg) !important;
+            transition: color .2s !important;
+        }
+
+        .sp-nav-links a:hover {
+            color: var(--sp-fg) !important;
+        }
+
+        /* ---------- HERO ---------- */
+        .sp-hero {
+            position: relative !important;
+            min-height: 100vh !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding-top: 80px !important;
+            overflow: hidden !important;
+            background-color: var(--sp-bg) !important;
+            /* Force dark background */
+        }
+
+        /* layered glow bg */
+        .sp-hero-bg {
+            position: absolute !important;
+            inset: 0 !important;
+            pointer-events: none !important;
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, hsl(270 80% 60% / .18), transparent 70%) !important;
+        }
+
+        /* perspective grid */
+        .sp-hero-grid {
+            position: absolute !important;
+            inset: 0 !important;
+            pointer-events: none !important;
+            overflow: hidden !important;
+        }
+
+        .sp-hero-grid::after {
+            content: '' !important;
+            position: absolute !important;
+            left: -20% !important;
+            right: -20% !important;
+            bottom: -5% !important;
+            height: 55% !important;
+            background-image:
+                linear-gradient(hsl(270 80% 60% / .08) 1px, transparent 1px),
+                linear-gradient(90deg, hsl(270 80% 60% / .08) 1px, transparent 1px) !important;
+            background-size: 60px 60px !important;
+            transform: perspective(600px) rotateX(42deg) !important;
+            transform-origin: bottom center !important;
+            animation: sp-grid-drift 10s linear infinite alternate !important;
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, .6) 0%, transparent 80%) !important;
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, .6) 0%, transparent 80%) !important;
+        }
+
+        /* central orb */
+        .sp-hero-orb {
+            position: absolute !important;
+            top: 32% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: 700px !important;
+            height: 700px !important;
+            border-radius: 50% !important;
+            background: radial-gradient(circle, hsl(270 80% 60% / .18) 0%, transparent 70%) !important;
+            filter: blur(60px) !important;
+            pointer-events: none !important;
+        }
+
+        /* pulsing rings */
+        .sp-hero-ring {
+            position: absolute !important;
+            top: 38% !important;
+            left: 50% !important;
+            width: min(560px, 90vw) !important;
+            height: min(560px, 90vw) !important;
+            border-radius: 50% !important;
+            border: 1px solid hsl(270 80% 60% / .18) !important;
+            animation: sp-pulse-ring 4s ease-in-out infinite !important;
+            pointer-events: none !important;
+        }
+
+        .sp-hero-ring-2 {
+            position: absolute !important;
+            top: 38% !important;
+            left: 50% !important;
+            width: min(760px, 120vw) !important;
+            height: min(760px, 120vw) !important;
+            border-radius: 50% !important;
+            border: 1px solid hsl(270 80% 60% / .07) !important;
+            animation: sp-pulse-ring 4s ease-in-out 1.3s infinite !important;
+            pointer-events: none !important;
+        }
+
+        .sp-hero-rule {
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 1px !important;
+            background: linear-gradient(to right, transparent, hsl(270 80% 60% / .4), transparent) !important;
+        }
+
+        /* platform label cards */
+        .sp-platform-cards-wrap {
+            position: absolute !important;
+            inset: 0 !important;
+            pointer-events: none !important;
+        }
+
+        .sp-p-card {
+            position: absolute !important;
+            display: none !important;
+            align-items: center !important;
+            gap: .5rem !important;
+            padding: .5rem .9rem !important;
+            border-radius: .65rem !important;
+            background: hsl(228 30% 13% / .85) !important;
+            border: 1px solid hsl(270 80% 60% / .18) !important;
+            backdrop-filter: blur(12px) !important;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .35) !important;
+            font-family: 'Outfit', sans-serif !important;
+            font-size: .8rem !important;
+            font-weight: 600 !important;
+            color: var(--sp-fg) !important;
+            white-space: nowrap !important;
+        }
+
+        .sp-p-card-icon {
+            width: 18px !important;
+            height: 18px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: var(--sp-fg) !important;
+            flex-shrink: 0 !important;
+            opacity: .95 !important;
+        }
+
+        .sp-p-card-icon svg {
+            width: 100% !important;
+            height: 100% !important;
+            fill: currentColor !important;
+            stroke: none !important;
+        }
+
+        @media (min-width:768px) {
+            .sp-p-card {
+                display: flex !important;
+            }
+        }
+
+        .sp-p-card-dot {
+            width: 8px !important;
+            height: 8px !important;
+            border-radius: 50% !important;
+            flex-shrink: 0 !important;
+        }
+
+        .p-card-stat {
+            color: var(--sp-muted-fg) !important;
+            font-size: .7rem !important;
+            font-weight: 400 !important;
+        }
+
+        .sp-hero-inner {
+            position: relative !important;
+            z-index: 10 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 3rem !important;
+            width: 100% !important;
+        }
+
+        @media (min-width:1024px) {
+            .sp-hero-inner {
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+        }
+
+        .sp-hero-text {
+            flex: 1 !important;
+            text-align: center !important;
+            max-width: 640px !important;
+        }
+
+        @media (min-width:1024px) {
+            .sp-hero-text {
+                text-align: left !important;
+            }
+        }
+
+        .sp-hero-eyebrow {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: .5rem !important;
+            font-family: 'Outfit', sans-serif !important;
+            font-size: .8rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: .12em !important;
+            color: var(--sp-primary) !important;
+            background: hsl(270 80% 60% / .08) !important;
+            border: 1px solid hsl(270 80% 60% / .22) !important;
+            padding: .35rem .9rem !important;
+            border-radius: 9999px !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .sp-hero-eyebrow::before {
+            content: '' !important;
+            width: 6px !important;
+            height: 6px !important;
+            border-radius: 50% !important;
+            background: var(--sp-primary) !important;
+            display: block !important;
+        }
+
+        .sp-hero-h1 {
+            font-weight: 800 !important;
+            font-size: clamp(2.25rem, 5.5vw, 4rem) !important;
+            line-height: 1.1 !important;
+            margin-bottom: 1.5rem !important;
+            letter-spacing: -.02em !important;
+            color: var(--sp-fg) !important;
+        }
+
+        .sp-hero-sub {
+            color: var(--sp-muted-fg) !important;
+            font-size: 1.1rem !important;
+            line-height: 1.7 !important;
+            margin-bottom: 2rem !important;
+            max-width: 480px !important;
+        }
+
+        .sp-hero-img-wrap {
+            flex: 1 !important;
+            display: flex !important;
+            justify-content: center !important;
+            position: relative !important;
+        }
+
+        .sp-hero-img-glow {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: 110% !important;
+            height: 110% !important;
+            background: radial-gradient(circle, hsl(270 80% 60% / .2) 0%, transparent 65%) !important;
+            filter: blur(40px) !important;
+        }
+
+        .sp-hero-img-wrap img {
+            position: relative !important;
+            z-index: 10 !important;
+            width: min(420px, 90vw) !important;
+            filter: drop-shadow(0 24px 60px hsl(270 80% 60% / .5)) !important;
+            /* Radial mask to soften edges */
+            -webkit-mask-image: radial-gradient(ellipse 82% 90% at 50% 52%, black 55%, transparent 80%) !important;
+            mask-image: radial-gradient(ellipse 82% 90% at 50% 52%, black 55%, transparent 80%) !important;
+        }
+
+        @keyframes sp-orbit {
+            from {
+                transform: rotate(0deg) translateX(210px) rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg) translateX(210px) rotate(-360deg);
+            }
+        }
+
+        @keyframes sp-orbit-reverse {
+            from {
+                transform: rotate(0deg) translateX(170px) rotate(0deg);
+            }
+
+            to {
+                transform: rotate(-360deg) translateX(170px) rotate(360deg);
+            }
+        }
+
+        @keyframes sp-orbit-slow {
+            from {
+                transform: rotate(45deg) translateX(250px) rotate(-45deg);
+            }
+
+            to {
+                transform: rotate(405deg) translateX(250px) rotate(-405deg);
+            }
+        }
+
+        .sp-hero-img-scene {
+            position: relative !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: min(460px, 90vw) !important;
+            height: min(460px, 90vw) !important;
+        }
+
+        /* Static glowing rings */
+        .sp-img-ring {
+            position: absolute !important;
+            border-radius: 50% !important;
+            border: 1px solid hsl(270 80% 60% / .22) !important;
+            pointer-events: none !important;
+        }
+
+        .sp-img-ring-1 {
+            width: 88% !important;
+            height: 88% !important;
+        }
+
+        .sp-img-ring-2 {
+            width: 100% !important;
+            height: 100% !important;
+            border-color: hsl(270 80% 60% / .10) !important;
+            border-style: dashed !important;
+            animation: sp-spin-slow 25s linear infinite !important;
+        }
+
+        @keyframes sp-spin-slow {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Orbiting dot */
+        .sp-orbit-dot {
+            position: absolute !important;
+            width: 10px !important;
+            height: 10px !important;
+            border-radius: 50% !important;
+            background: var(--sp-primary) !important;
+            box-shadow: 0 0 12px 4px hsl(270 80% 60% / .6) !important;
+            animation: sp-orbit 8s linear infinite !important;
+            top: 50% !important;
+            left: 50% !important;
+            margin-top: -5px !important;
+            margin-left: -5px !important;
+        }
+
+        .sp-orbit-dot-2 {
+            position: absolute !important;
+            width: 7px !important;
+            height: 7px !important;
+            border-radius: 50% !important;
+            background: hsl(200 90% 65%) !important;
+            box-shadow: 0 0 10px 3px hsl(200 90% 65% / .5) !important;
+            animation: sp-orbit-reverse 12s linear infinite !important;
+            top: 50% !important;
+            left: 50% !important;
+            margin-top: -3.5px !important;
+            margin-left: -3.5px !important;
+        }
+
+        .sp-orbit-dot-3 {
+            position: absolute !important;
+            width: 6px !important;
+            height: 6px !important;
+            border-radius: 50% !important;
+            background: hsl(320 80% 65%) !important;
+            box-shadow: 0 0 10px 3px hsl(320 80% 65% / .5) !important;
+            animation: sp-orbit-slow 18s linear infinite !important;
+            top: 50% !important;
+            left: 50% !important;
+            margin-top: -3px !important;
+            margin-left: -3px !important;
+        }
+
+        .orbit-dot-2 {
+            position: absolute !important;
+            width: 7px !important;
+            height: 7px !important;
+            border-radius: 50% !important;
+            background: hsl(200 90% 65%) !important;
+            box-shadow: 0 0 10px 3px hsl(200 90% 65% / .5) !important;
+            animation: orbit-reverse 12s linear infinite !important;
+            top: 50% !important;
+            left: 50% !important;
+            margin-top: -3.5px !important;
+            margin-left: -3.5px !important;
+        }
+
+        .orbit-dot-3 {
+            position: absolute !important;
+            width: 6px !important;
+            height: 6px !important;
+            border-radius: 50% !important;
+            background: hsl(320 80% 65%) !important;
+            box-shadow: 0 0 10px 3px hsl(320 80% 65% / .5) !important;
+            animation: orbit-slow 18s linear infinite !important;
+            top: 50% !important;
+            left: 50% !important;
+            margin-top: -3px !important;
+            margin-left: -3px !important;
+        }
+
+        /* Floating stats badge inside hero */
+        .sp-hero-badge {
+            position: absolute !important;
+            bottom: 8% !important;
+            right: -4% !important;
+            z-index: 20 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: .6rem !important;
+            padding: .6rem 1rem !important;
+            border-radius: .75rem !important;
+            background: hsl(228 30% 13% / .9) !important;
+            border: 1px solid hsl(270 80% 60% / .25) !important;
+            backdrop-filter: blur(14px) !important;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .4) !important;
+            animation: sp-cfa 7s ease-in-out 1s infinite !important;
+        }
+
+        .sp-hero-badge-icon {
+            width: 32px !important;
+            height: 32px !important;
+            border-radius: .5rem !important;
+            background: var(--sp-primary) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1rem !important;
+        }
+
+        .sp-hero-badge-text {
+            line-height: 1.3 !important;
+        }
+
+        .sp-hero-badge-num {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 1rem !important;
+            color: var(--sp-fg) !important;
+        }
+
+        .sp-hero-badge-label {
+            font-size: .7rem !important;
+            color: var(--sp-muted-fg) !important;
+        }
+
+        /* ---- Section separation ---- */
+        .sp-section-alt {
+            background-color: var(--sp-bg-alt) !important;
+        }
+
+        .sp-section-divider {
+            height: 1px !important;
+            background: linear-gradient(to right, transparent 0%, hsl(270 80% 60% / .2) 30%, hsl(270 80% 60% / .35) 50%, hsl(270 80% 60% / .2) 70%, transparent 100%) !important;
+        }
+
+        /* ---------- STEPS ---------- */
+        .sp-steps-section {
+            position: relative !important;
+            padding: 6rem 0 !important;
+            overflow: hidden !important;
+        }
+
+        .sp-steps-section .sp-dot-bg {
+            position: absolute !important;
+            inset: 0 !important;
+            opacity: .3 !important;
+        }
+
+        .sp-section-label {
+            font-size: .875rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: .15em !important;
+            color: var(--sp-primary) !important;
+            margin-bottom: .75rem !important;
+        }
+
+        .sp-section-title {
+            font-weight: 700 !important;
+            font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
+            color: var(--sp-fg) !important;
+        }
+
+        .sp-section-head {
+            text-align: center !important;
+            margin-bottom: 4rem !important;
+        }
+
+        .sp-steps-grid {
+            display: grid !important;
+            gap: 1.5rem !important;
+            grid-template-columns: 1fr !important;
+        }
+
+        @media (min-width:640px) {
+            .sp-steps-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+        }
+
+        @media (min-width:1024px) {
+            .sp-steps-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+            }
+        }
+
+        .sp-step-card {
+            border-radius: 1rem !important;
+            padding: 1.5rem !important;
+            text-align: center !important;
+        }
+
+        .sp-step-icon {
+            width: 48px !important;
+            height: 48px !important;
+            margin: 0 auto 1.5rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: transform .3s !important;
+        }
+
+        .sp-step-card:hover .sp-step-icon {
+            transform: scale(1.1) translateY(-5px) !important;
+        }
+
+        .sp-step-icon svg,
+        .sp-step-icon img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+        }
+
+        .sp-step-icon svg {
+            stroke: #fff !important;
+            fill: none !important;
+            stroke-width: 2 !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+        }
+
+        .sp-step-num {
+            font-size: .75rem !important;
+            font-weight: 700 !important;
+            color: var(--sp-primary) !important;
+            margin-bottom: .5rem !important;
+        }
+
+        .sp-step-title {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 1.05rem !important;
+            margin-bottom: .5rem !important;
+        }
+
+        .sp-step-desc {
+            color: var(--sp-muted-fg) !important;
+            font-size: .875rem !important;
+            line-height: 1.6 !important;
+        }
+
+        .step-card:hover .step-icon {
+            transform: scale(1.1) !important;
+            box-shadow: 0 12px 36px hsl(270 80% 60% / .5) !important;
+        }
+
+        .step-icon svg {
+            width: 28px !important;
+            height: 28px !important;
+            stroke: #fff !important;
+            fill: none !important;
+            stroke-width: 2 !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+        }
+
+        .step-num {
+            font-size: .75rem !important;
+            font-weight: 700 !important;
+            color: var(--primary) !important;
+            margin-bottom: .5rem !important;
+        }
+
+        .step-title {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 1.05rem !important;
+            margin-bottom: .5rem !important;
+        }
+
+        .step-desc {
+            color: var(--muted-fg) !important;
+            font-size: .875rem !important;
+            line-height: 1.6 !important;
+        }
+
+        /* ---------- DASHBOARD / TWO-COL SECTIONS ---------- */
+        .sp-dashboard-section {
+            padding: 6rem 0 !important;
+        }
+
+        .sp-two-col {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 3rem !important;
+        }
+
+        @media (min-width:1024px) {
+            .sp-two-col {
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+        }
+
+        @media (min-width:1024px) {
+            .sp-two-col.sp-reverse {
+                flex-direction: row-reverse !important;
+            }
+        }
+
+        .sp-col-img {
+            flex: 1 !important;
+            position: relative !important;
+            width: 100% !important;
+        }
+
+        .sp-col-img-glow {
+            position: absolute !important;
+            inset: -1rem !important;
+            background: hsl(270 80% 60% / .05) !important;
+            filter: blur(60px) !important;
+            border-radius: 1.5rem !important;
+        }
+
+        .sp-col-img img {
+            position: relative !important;
+            border-radius: 1rem !important;
+            width: 100% !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .4) !important;
+        }
+
+        .sp-col-text {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1.5rem !important;
+        }
+
+        .sp-feature-row {
+            display: flex !important;
+            gap: 1rem !important;
+            align-items: flex-start !important;
+            transition: transform .3s !important;
+        }
+
+        .sp-feature-row:hover {
+            transform: translateX(8px) !important;
+        }
+
+        .sp-feature-icon {
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: .75rem !important;
+            background: hsl(270 80% 60% / .1) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+            transition: background .3s, transform .3s !important;
+        }
+
+        .sp-feature-row:hover .sp-feature-icon {
+            background: hsl(270 80% 60% / .2) !important;
+            transform: scale(1.1) !important;
+        }
+
+        .sp-feature-icon svg {
+            width: 22px !important;
+            height: 22px !important;
+            stroke: var(--sp-primary) !important;
+            fill: none !important;
+            stroke-width: 2 !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+        }
+
+        .sp-feature-title {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 600 !important;
+            margin-bottom: .25rem !important;
+        }
+
+        .sp-feature-desc {
+            color: var(--sp-muted-fg) !important;
+            font-size: .875rem !important;
+            line-height: 1.6 !important;
+        }
+
+        /* ---------- FEATURES GRID ---------- */
+        .sp-features-section {
+            position: relative !important;
+            padding: 6rem 0 !important;
+        }
+
+        .sp-features-section .sp-dot-bg {
+            position: absolute !important;
+            inset: 0 !important;
+            opacity: .2 !important;
+        }
+
+        .sp-section-sub {
+            color: var(--sp-muted-fg) !important;
+            font-size: 1.1rem !important;
+            margin-top: .75rem !important;
+            max-width: 640px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .sp-badges-wrap {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 1rem !important;
+            margin-bottom: 3.5rem !important;
+        }
+
+        .sp-badge {
+            display: flex !important;
+            align-items: center !important;
+            gap: .5rem !important;
+            padding: .625rem 1.25rem !important;
+            border-radius: 9999px !important;
+            border: 1px solid hsl(270 80% 60% / .2) !important;
+            background: hsl(270 80% 60% / .05) !important;
+            color: var(--sp-primary) !important;
+            font-size: .875rem !important;
+            font-weight: 500 !important;
+            transition: background .2s, border-color .2s !important;
+        }
+
+        .sp-badge:hover {
+            background: hsl(270 80% 60% / .1) !important;
+            border-color: hsl(270 80% 60% / .4) !important;
+        }
+
+        .sp-badge svg {
+            width: 16px !important;
+            height: 16px !important;
+            stroke: currentColor !important;
+            fill: none !important;
+            stroke-width: 2 !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+        }
+
+        .sp-cards-grid {
+            display: grid !important;
+            gap: 1.5rem !important;
+            grid-template-columns: 1fr !important;
+        }
+
+        @media (min-width:640px) {
+            .sp-cards-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+        }
+
+        @media (min-width:1024px) {
+            .sp-cards-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+
+        .sp-feat-card {
+            border-radius: 1rem !important;
+            padding: 1.5rem !important;
+        }
+
+        .sp-feat-card-icon {
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: .75rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-bottom: 1rem !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .2) !important;
+        }
+
+        .sp-feat-card-icon svg {
+            width: 22px !important;
+            height: 22px !important;
+            stroke: #fff !important;
+            fill: none !important;
+            stroke-width: 2 !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+        }
+
+        .sp-feat-card-title {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 600 !important;
+            margin-bottom: .5rem !important;
+        }
+
+        .sp-feat-card-desc {
+            color: var(--sp-muted-fg) !important;
+            font-size: .875rem !important;
+            line-height: 1.6 !important;
+        }
+
+        /* ---------- TESTIMONIALS ---------- */
+        .sp-testimonials-section {
+            padding: 6rem 0 !important;
+        }
+
+        .sp-testi-grid {
+            display: grid !important;
+            gap: 1.5rem !important;
+            grid-template-columns: 1fr !important;
+            margin-top: 3rem !important;
+        }
+
+        @media (min-width:768px) {
+            .sp-testi-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+
+        .sp-testi-card {
+            border-radius: 1rem !important;
+            padding: 2rem !important;
+        }
+
+        .sp-testi-quote-icon {
+            margin-bottom: 1rem !important;
+            color: hsl(270 80% 60% / .4) !important;
+        }
+
+        .sp-testi-quote-icon svg {
+            width: 28px !important;
+            height: 28px !important;
+            stroke: currentColor !important;
+            fill: none !important;
+            stroke-width: 2 !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+        }
+
+        .sp-stars {
+            display: flex !important;
+            gap: .25rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .sp-star svg {
+            width: 16px !important;
+            height: 16px !important;
+            fill: hsl(38 92% 50%) !important;
+            stroke: hsl(38 92% 50%) !important;
+        }
+
+        .sp-testi-text {
+            font-size: .875rem !important;
+            font-style: italic !important;
+            line-height: 1.7 !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .sp-testi-name {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: .875rem !important;
+        }
+
+        .sp-testi-role {
+            color: var(--sp-muted-fg) !important;
+            font-size: .75rem !important;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .sp-footer {
+            border-top: 1px solid var(--sp-border) !important;
+            padding: 3rem 0 !important;
+        }
+
+        .sp-footer-inner {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 2rem !important;
+        }
+
+        @media (min-width:768px) {
+            .sp-footer-inner {
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                justify-content: space-between !important;
+            }
+        }
+
+        .sp-footer-brand {
+            max-width: 380px !important;
+            text-align: center !important;
+        }
+
+        @media (min-width:768px) {
+            .sp-footer-brand {
+                text-align: left !important;
+            }
+        }
+
+        .sp-footer-brand-row {
+            display: flex !important;
+            align-items: center !important;
+            gap: .5rem !important;
+            justify-content: center !important;
+            margin-bottom: .75rem !important;
+        }
+
+        @media (min-width:768px) {
+            .sp-footer-brand-row {
+                justify-content: flex-start !important;
+            }
+        }
+
+        .sp-footer-icon {
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: .5rem !important;
+            background: transparent !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 4px 14px hsl(270 80% 60% / .35) !important;
+            overflow: hidden !important;
+        }
+
+        .sp-footer-icon img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: inherit !important;
+            display: block !important;
+        }
+
+        .sp-col-img.sp-showcase-flair::before {
+            content: '' !important;
+            position: absolute !important;
+            inset: -10px !important;
+            border-radius: 1.4rem !important;
+            border: 1px dashed hsl(270 80% 60% / .3) !important;
+            z-index: 0 !important;
+            pointer-events: none !important;
+            animation: sp-spin-slow 30s linear infinite !important;
+        }
+
+        .sp-col-img.sp-showcase-flair::after {
+            content: '' !important;
+            position: absolute !important;
+            top: -14px !important;
+            right: -14px !important;
+            width: 88px !important;
+            height: 88px !important;
+            border-radius: 50% !important;
+            background: radial-gradient(circle, hsl(270 80% 60% / .38) 0%, transparent 72%) !important;
+            filter: blur(6px) !important;
+            z-index: 0 !important;
+            pointer-events: none !important;
+        }
+
+        .sp-footer-brand-name {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+        }
+
+        .sp-footer-desc {
+            color: var(--sp-muted-fg) !important;
+            font-size: .875rem !important;
+            line-height: 1.7 !important;
+        }
+
+        .sp-footer-links {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: .5rem !important;
+            align-items: center !important;
+        }
+
+        @media (min-width:768px) {
+            .sp-footer-links {
+                align-items: flex-start !important;
+            }
+        }
+
+        .sp-footer-col-title {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: .875rem !important;
+            margin-bottom: .25rem !important;
+        }
+
+        .sp-footer-links a {
+            color: var(--sp-muted-fg) !important;
+            font-size: .875rem !important;
+            transition: color .2s !important;
+        }
+
+        .sp-footer-links a:hover {
+            color: var(--sp-primary) !important;
+        }
+
+        .sp-social-wrap {
+            display: flex !important;
+            gap: .75rem !important;
+        }
+
+        .sp-social-btn {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            background: hsl(270 80% 60% / .1) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: var(--sp-primary) !important;
+            transition: background .2s, transform .2s !important;
+        }
+
+        .sp-social-btn:hover {
+            background: hsl(270 80% 60% / .2) !important;
+            transform: scale(1.1) !important;
+        }
+
+        .sp-social-btn svg {
+            width: 18px !important;
+            height: 18px !important;
+            fill: currentColor !important;
+        }
+
+        /* ---------- ICON FALLBACKS (for environments that hide inline SVG) ---------- */
+        .sp-p-card-icon,
+        .sp-feature-icon,
+        .sp-feat-card-icon,
+        .sp-testi-quote-icon,
+        .sp-star,
+        .sp-social-btn,
+        .sp-badge {
+            position: relative !important;
+        }
+
+        .sp-p-card-icon svg,
+        .sp-feature-icon svg,
+        .sp-feat-card-icon svg,
+        .sp-testi-quote-icon svg,
+        .sp-star svg,
+        .sp-social-btn svg,
+        .sp-badge svg {
+            display: none !important;
+        }
+
+        .sp-p-card-icon::before,
+        .sp-feature-icon::before,
+        .sp-feat-card-icon::before,
+        .sp-testi-quote-icon::before,
+        .sp-social-btn::before,
+        .sp-badge::before {
+            content: "✦";
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            line-height: 1 !important;
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 700 !important;
+        }
+
+        .sp-p-card-icon::before {
+            font-size: 14px !important;
+        }
+
+        .sp-feature-icon::before,
+        .sp-feat-card-icon::before {
+            font-size: 18px !important;
+            color: currentColor !important;
+        }
+
+        .sp-badge::before {
+            width: 16px !important;
+            font-size: 14px !important;
+            color: currentColor !important;
+            flex-shrink: 0 !important;
+        }
+
+        .sp-testi-quote-icon::before {
+            content: "❝";
+            font-size: 26px !important;
+            color: currentColor !important;
+        }
+
+        .sp-star::before {
+            content: "★";
+            display: inline-block !important;
+            font-size: 15px !important;
+            line-height: 1 !important;
+            color: hsl(38 92% 50%) !important;
+        }
+
+        .sp-social-btn::before {
+            font-size: 16px !important;
+            color: currentColor !important;
+        }
+
+        /* Floating social cards */
+        .sp-platform-cards-wrap .sp-p-card:nth-child(1) .sp-p-card-icon::before {
+            content: "◉";
+        }
+
+        .sp-platform-cards-wrap .sp-p-card:nth-child(2) .sp-p-card-icon::before {
+            content: "f";
+        }
+
+        .sp-platform-cards-wrap .sp-p-card:nth-child(3) .sp-p-card-icon::before {
+            content: "▶";
+        }
+
+        .sp-platform-cards-wrap .sp-p-card:nth-child(4) .sp-p-card-icon::before {
+            content: "𝕏";
+        }
+
+        .sp-platform-cards-wrap .sp-p-card:nth-child(5) .sp-p-card-icon::before {
+            content: "♪";
+        }
+
+        .sp-platform-cards-wrap .sp-p-card:nth-child(6) .sp-p-card-icon::before {
+            content: "👻";
+        }
+
+        /* Dashboard section feature icons */
+        section.sp-dashboard-section:not([id]) .sp-feature-row:nth-child(1) .sp-feature-icon::before {
+            content: "⚙";
+        }
+
+        section.sp-dashboard-section:not([id]) .sp-feature-row:nth-child(2) .sp-feature-icon::before {
+            content: "⚡";
+        }
+
+        section.sp-dashboard-section:not([id]) .sp-feature-row:nth-child(3) .sp-feature-icon::before {
+            content: "🧩";
+        }
+
+        /* Features badges */
+        section.sp-features-section .sp-badges-wrap .sp-badge:nth-child(1)::before {
+            content: "🔎";
+        }
+
+        section.sp-features-section .sp-badges-wrap .sp-badge:nth-child(2)::before {
+            content: "🛠";
+        }
+
+        section.sp-features-section .sp-badges-wrap .sp-badge:nth-child(3)::before {
+            content: "📊";
+        }
+
+        section.sp-features-section .sp-badges-wrap .sp-badge:nth-child(4)::before {
+            content: "$";
+        }
+
+        /* Feature cards */
+        .sp-cards-grid .sp-feat-card:nth-child(1) .sp-feat-card-icon::before {
+            content: "⚡";
+        }
+
+        .sp-cards-grid .sp-feat-card:nth-child(2) .sp-feat-card-icon::before {
+            content: "🛒";
+        }
+
+        .sp-cards-grid .sp-feat-card:nth-child(3) .sp-feat-card-icon::before {
+            content: "⌘";
+        }
+
+        .sp-cards-grid .sp-feat-card:nth-child(4) .sp-feat-card-icon::before {
+            content: "📈";
+        }
+
+        .sp-cards-grid .sp-feat-card:nth-child(5) .sp-feat-card-icon::before {
+            content: "👥";
+        }
+
+        .sp-cards-grid .sp-feat-card:nth-child(6) .sp-feat-card-icon::before {
+            content: "💳";
+        }
+
+        /* Theme section feature icons */
+        #theme .sp-feature-row:nth-child(1) .sp-feature-icon::before {
+            content: "🧰";
+        }
+
+        #theme .sp-feature-row:nth-child(2) .sp-feature-icon::before {
+            content: "🛒";
+        }
+
+        #theme .sp-feature-row:nth-child(3) .sp-feature-icon::before {
+            content: "🔍";
+        }
+
+        /* Plugin section feature icons */
+        #plugin .sp-feature-row:nth-child(1) .sp-feature-icon::before {
+            content: "🛒";
+        }
+
+        #plugin .sp-feature-row:nth-child(2) .sp-feature-icon::before {
+            content: "⌘";
+        }
+
+        #plugin .sp-feature-row:nth-child(3) .sp-feature-icon::before {
+            content: "📋";
+        }
+
+        /* Footer social icons */
+        .sp-social-wrap .sp-social-btn:nth-child(1)::before {
+            content: "f";
+        }
+
+        .sp-social-wrap .sp-social-btn:nth-child(2)::before {
+            content: "𝕏";
+        }
+
+        .sp-social-wrap .sp-social-btn:nth-child(3)::before {
+            content: "▶";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sp-isolation-wrap">
+        <div class="sp-main-container">
+            <!-- NAVBAR -->
+            <nav class="sp-navbar">
+                <div class="sp-container sp-navbar-inner">
+                    <div class="sp-brand">
+                        <div class="sp-brand-icon"><img
+                                src="/smm panel wordpress logo.png"
+                                alt="SMM Panel logo" /></div>
+                        <span class="sp-brand-name">SMM Panel<span class="sp-text-highlight"> For WP</span></span>
+                    </div>
+                    <div class="sp-nav-links">
+                        <a href="#theme">Theme</a>
+                        <a href="#plugin">Plugin</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- HERO -->
+            <section class="sp-hero">
+                <div class="sp-hero-bg"></div>
+                <div class="sp-hero-grid"></div>
+                <div class="sp-hero-orb"></div>
+                <div class="sp-hero-ring"></div>
+                <div class="sp-hero-ring-2"></div>
+                <div class="sp-hero-rule"></div>
+
+                <!-- Floating platform label cards -->
+                <div class="sp-platform-cards-wrap">
+                    <div class="sp-p-card" style="top:18%;left:3%;animation:sp-cfa 7s ease-in-out infinite">
+                        <div class="sp-p-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm8.73 2.18a1.32 1.32 0 1 0 0 2.64 1.32 1.32 0 0 0 0-2.64zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
+                            </svg></div>Instagram<span class="p-card-stat">+12.4k</span>
+                    </div>
+                    <div class="sp-p-card" style="top:38%;left:1.5%;animation:sp-cfb 8s ease-in-out 1s infinite">
+                        <div class="sp-p-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11.02 10.13 11.93V15.6H7.08v-3.47h3.05V9.48c0-3.02 1.79-4.69 4.54-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.52c-1.5 0-1.96.93-1.96 1.88v2.25h3.33l-.53 3.47h-2.8V24C19.61 23.09 24 18.1 24 12.07z" />
+                            </svg></div>Facebook<span class="p-card-stat">+8.9k</span>
+                    </div>
+                    <div class="sp-p-card" style="top:55%;left:2.5%;animation:sp-cfc 9s ease-in-out .4s infinite">
+                        <div class="sp-p-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.5 3.57 12 3.57 12 3.57s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.12c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.12c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z" />
+                            </svg></div>YouTube<span class="p-card-stat">+5.2k</span>
+                    </div>
+                    <div class="sp-p-card" style="top:14%;right:3%;animation:sp-cfd 7.5s ease-in-out .8s infinite">
+                        <div class="sp-p-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.3L.8 2H7l4.6 6.1L18.9 2zm-1.1 18h1.7L6.1 3.9H4.3L17.8 20z" />
+                            </svg></div>X<span class="p-card-stat">+22.1k</span>
+                    </div>
+                    <div class="sp-p-card" style="top:32%;right:2%;animation:sp-cfa 8.5s ease-in-out 1.6s infinite">
+                        <div class="sp-p-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M14.5 2h3a5 5 0 0 0 4.5 4.5v3a8 8 0 0 1-4.5-1.4V15a7 7 0 1 1-7-7h.5v3h-.5a4 4 0 1 0 4 4V2z" />
+                            </svg></div>TikTok<span class="p-card-stat">+31.7k</span>
+                    </div>
+                    <div class="sp-p-card" style="top:52%;right:3%;animation:sp-cfb 6.5s ease-in-out .2s infinite">
+                        <div class="sp-p-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2c3.3 0 6 2.7 6 6v2.3c0 .5.2 1 .6 1.3l1.6 1.2c.5.4.4 1.1-.2 1.3l-1.9.7c-.3.1-.5.3-.5.6-.1 2.3-1.8 4-4.1 4.2l-.2 1.2h-2.6l-.2-1.2c-2.3-.2-4-1.9-4.1-4.2 0-.3-.2-.5-.5-.6l-1.9-.7c-.6-.2-.7-.9-.2-1.3l1.6-1.2c.4-.3.6-.8.6-1.3V8c0-3.3 2.7-6 6-6z" />
+                            </svg></div>Snapchat<span class="p-card-stat">+4.8k</span>
+                    </div>
+                </div>
+
+                <div class="sp-container sp-hero-inner">
+                    <div class="sp-hero-text">
+                        <p class="sp-hero-eyebrow sp-fade-up">Want to make your own SMM Panel the EZ way?</p>
+                        <h1 class="sp-hero-h1 sp-fade-up">
+                            Power Your
+                            <span class="sp-text-highlight"> SMM Panel </span>
+                            with Premium WordPress Themes &amp; Plugins
+                        </h1>
+                        <p class="sp-hero-sub sp-fade-up-1">
+                            Crafted for speed, security, and seamless integration. Launch your panel with confidence.
+                        </p>
+                        <div class="sp-fade-up-2">
+                            <a href="#" class="sp-btn-cta">Know More →</a>
+                        </div>
+                    </div>
+                    <div class="sp-hero-img-wrap">
+                        <div class="sp-hero-img-glow"></div>
+                        <div class="sp-hero-img-scene">
+                            <div class="sp-img-ring sp-img-ring-1"></div>
+                            <div class="sp-img-ring sp-img-ring-2"></div>
+                            <div class="sp-orbit-dot"></div>
+                            <div class="sp-orbit-dot-2"></div>
+                            <div class="sp-orbit-dot-3"></div>
+                            <img src="https://smmpanelwp.com/wp-content/uploads/2026/03/Gemini_Generated_Image_1w5d2r1w5d2r1w5d.png"
+                                alt="SMM Panel Hero" class="sp-floating" />
+                            <div class="sp-hero-badge">
+                                <div class="sp-hero-badge-icon">🚀</div>
+                                <div class="sp-hero-badge-text">
+                                    <div class="sp-hero-badge-num">500+</div>
+                                    <div class="sp-hero-badge-label">Panels Launched</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sp-section-divider"></div>
+            <!-- STEPS -->
+            <section class="sp-steps-section sp-section-alt">
+                <div class="sp-dot-pattern sp-dot-bg"></div>
+                <div class="sp-container" style="position:relative;z-index:10">
+                    <div class="sp-section-head">
+                        <p class="sp-section-label">Learn How You Make Your Own SMM Panel</p>
+                        <h2 class="sp-section-title">The Easiest Way to Create Your Own<span class="sp-text-highlight">
+                                SMM
+                                Panel</span></h2>
+                    </div>
+                    <div class="sp-steps-grid">
+                        <div class="sp-glow-card sp-step-card">
+                            <div class="sp-step-icon">
+                                <img src="https://smmpanelwp.com/wp-content/uploads/2025/10/wordpress.png"
+                                    alt="WordPress" />
+                            </div>
+                            <div class="sp-step-num">01</div>
+                            <h3 class="sp-step-title">Install WordPress</h3>
+                            <p class="sp-step-desc">Set up your WordPress site in minutes with any hosting provider.</p>
+                        </div>
+                        <div class="sp-glow-card sp-step-card">
+                            <div class="sp-step-icon">
+                                <img src="https://smmpanelwp.com/wp-content/uploads/2025/10/mockup.png"
+                                    alt="Theme Mockup" />
+                            </div>
+                            <div class="sp-step-num">02</div>
+                            <h3 class="sp-step-title">Install OUR Pure Panel Theme</h3>
+                            <p class="sp-step-desc">Upload and activate our premium theme built for SMM panels.</p>
+                        </div>
+                        <div class="sp-glow-card sp-step-card">
+                            <div class="sp-step-icon">
+                                <img src="https://smmpanelwp.com/wp-content/uploads/2025/10/plug-in.png" alt="Plugin" />
+                            </div>
+                            <div class="sp-step-num">03</div>
+                            <h3 class="sp-step-title">Install OUR SMM Panel Manager Plugin</h3>
+                            <p class="sp-step-desc">Add our manager plugin for API connections and order tracking.</p>
+                        </div>
+                        <div class="sp-glow-card sp-step-card">
+                            <div class="sp-step-icon">
+                                <img src="https://smmpanelwp.com/wp-content/uploads/2025/10/launch.png" alt="Launch" />
+                            </div>
+                            <div class="sp-step-num">04</div>
+                            <h3 class="sp-step-title">Launch Your SMM Panel</h3>
+                            <p class="sp-step-desc">Go live and start accepting orders from customers worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sp-section-divider"></div>
+            <!-- DASHBOARD -->
+            <section class="sp-dashboard-section">
+                <div class="sp-container">
+                    <div class="sp-section-head">
+                        <p class="sp-section-label">It's easy to make your own SMM panel</p>
+                        <h2 class="sp-section-title">Control Everything from Your<span class="sp-text-highlight">
+                                Dashboard</span>
+                        </h2>
+                    </div>
+                    <div class="sp-two-col">
+                        <div class="sp-col-img">
+                            <div class="sp-col-img-glow"></div>
+                            <img src="https://smmpanelwp.com/wp-content/uploads/2026/03/dashboard-preview.jpg" alt="Dashboard Preview"
+                                class="sp-glow-border" />
+                        </div>
+                        <div class="sp-col-text">
+                            <div class="sp-feature-row">
+                                <div class="sp-feature-icon"><svg viewBox="0 0 24 24">
+                                        <path d="M12 3a2 2 0 012 2v1.1a6.5 6.5 0 012.7 1.6l.8-.8a2 2 0 113 2.8l-.8.8a6.5 6.5 0 010 3.1l.8.8a2 2 0 11-2.8 2.8l-.8-.8a6.5 6.5 0 01-2.7 1.6V19a2 2 0 11-4 0v-1.1a6.5 6.5 0 01-2.7-1.6l-.8.8a2 2 0 11-2.8-2.8l.8-.8a6.5 6.5 0 010-3.1l-.8-.8a2 2 0 113-2.8l.8.8a6.5 6.5 0 012.7-1.6V5a2 2 0 012-2z" />
+                                        <circle cx="12" cy="12" r="2.3" />
+                                    </svg></div>
+                                <div>
+                                    <h3 class="sp-feature-title">Customize Your Theme</h3>
+                                    <p class="sp-feature-desc">Full control over colors, layouts, and branding to match
+                                        your
+                                        vision.</p>
+                                </div>
+                            </div>
+                            <div class="sp-feature-row">
+                                <div class="sp-feature-icon"><svg viewBox="0 0 24 24">
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                    </svg></div>
+                                <div>
+                                    <h3 class="sp-feature-title">Lightning-Fast Performance</h3>
+                                    <p class="sp-feature-desc">Optimized codebase ensures your panel loads instantly for
+                                        every
+                                        user.</p>
+                                </div>
+                            </div>
+                            <div class="sp-feature-row">
+                                <div class="sp-feature-icon"><svg viewBox="0 0 24 24">
+                                        <path d="M20 13.2V8.5a1.5 1.5 0 0 0-.8-1.3l-6.5-3.5a1.5 1.5 0 0 0-1.4 0L4.8 7.2A1.5 1.5 0 0 0 4 8.5v7a1.5 1.5 0 0 0 .8 1.3l6.5 3.5a1.5 1.5 0 0 0 1.4 0l3.8-2" />
+                                        <path d="M4.7 7.7L12 11.5l7.3-3.8" />
+                                        <path d="M12 11.5V20" />
+                                        <path d="M16 15l2 2 4-4" />
+                                    </svg></div>
+                                <div>
+                                    <h3 class="sp-feature-title">Easy Plugin Compatibility</h3>
+                                    <p class="sp-feature-desc">Works seamlessly with WooCommerce, payment gateways, and
+                                        more.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sp-section-divider"></div>
+            <!-- FEATURES GRID -->
+            <section class="sp-features-section sp-section-alt">
+                <div class="sp-dot-pattern sp-dot-bg"></div>
+                <div class="sp-container" style="position:relative;z-index:10">
+                    <div class="sp-section-head">
+                        <h2 class="sp-section-title">Everything You <span class="sp-text-highlight">Need</span></h2>
+                        <p class="sp-section-sub">From setup to scaling, we've got the tools to run your SMM panel
+                            smoothly.</p>
+                    </div>
+                    <div class="sp-badges-wrap">
+                        <div class="sp-badge"><svg viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="7" />
+                                <line x1="16.6" y1="16.6" x2="21" y2="21" />
+                                <path d="M8 11h6M11 8v6" />
+                            </svg>SEO Friendly Website</div>
+                        <div class="sp-badge"><svg viewBox="0 0 24 24">
+                                <rect x="4" y="4" width="16" height="16" rx="2" />
+                                <path d="M8 8h4M8 12h8M8 16h5" />
+                                <circle cx="17" cy="8" r="1" />
+                            </svg>User Friendly Setup</div>
+                        <div class="sp-badge"><svg viewBox="0 0 24 24">
+                                <path d="M3 20h18" />
+                                <rect x="5" y="11" width="3" height="7" />
+                                <rect x="10.5" y="7" width="3" height="11" />
+                                <rect x="16" y="4" width="3" height="14" />
+                            </svg>All Data Analytics</div>
+                        <div class="sp-badge"><svg viewBox="0 0 24 24">
+                                <path d="M3 8h18v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z" />
+                                <path d="M7 8V6a5 5 0 0 1 10 0v2" />
+                                <path d="M12 12v5" />
+                            </svg>Earn More Money</div>
+                    </div>
+                    <div class="sp-cards-grid">
+                        <div class="sp-glow-card sp-feat-card">
+                            <div class="sp-feat-card-icon" style="background:hsl(217 91% 60%)"><svg viewBox="0 0 24 24">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg></div>
+                            <h3 class="sp-feat-card-title">Quick Setup</h3>
+                            <p class="sp-feat-card-desc">Get your SMM panel running in minutes. No coding skills needed.
+                            </p>
+                        </div>
+                        <div class="sp-glow-card sp-feat-card">
+                            <div class="sp-feat-card-icon" style="background:hsl(160 84% 39%)"><svg viewBox="0 0 24 24">
+                                    <circle cx="9" cy="21" r="1" />
+                                    <circle cx="20" cy="21" r="1" />
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.99-1.77L23 6H6" />
+                                </svg></div>
+                            <h3 class="sp-feat-card-title">WooCommerce Ready</h3>
+                            <p class="sp-feat-card-desc">Works with WooCommerce out of the box. Start selling right
+                                away.
+                            </p>
+                        </div>
+                        <div class="sp-glow-card sp-feat-card">
+                            <div class="sp-feat-card-icon" style="background:hsl(258 90% 66%)"><svg viewBox="0 0 24 24">
+                                    <polyline points="16 18 22 12 16 6" />
+                                    <polyline points="8 6 2 12 8 18" />
+                                </svg></div>
+                            <h3 class="sp-feat-card-title">API Integration</h3>
+                            <p class="sp-feat-card-desc">Connect with any provider API. Automate your entire workflow.
+                            </p>
+                        </div>
+                        <div class="sp-glow-card sp-feat-card">
+                            <div class="sp-feat-card-icon" style="background:hsl(38 92% 50%)"><svg viewBox="0 0 24 24">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                    <polyline points="17 6 23 6 23 12" />
+                                </svg></div>
+                            <h3 class="sp-feat-card-title">Grow Your Business</h3>
+                            <p class="sp-feat-card-desc">Scale from startup to enterprise. Our tools grow with you.</p>
+                        </div>
+                        <div class="sp-glow-card sp-feat-card">
+                            <div class="sp-feat-card-icon" style="background:hsl(340 82% 52%)"><svg viewBox="0 0 24 24">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                                </svg></div>
+                            <h3 class="sp-feat-card-title">User Management</h3>
+                            <p class="sp-feat-card-desc">Built-in customer portal and order tracking system.</p>
+                        </div>
+                        <div class="sp-glow-card sp-feat-card">
+                            <div class="sp-feat-card-icon" style="background:hsl(199 89% 48%)"><svg viewBox="0 0 24 24">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                                    <line x1="1" y1="10" x2="23" y2="10" />
+                                </svg></div>
+                            <h3 class="sp-feat-card-title">Payment Ready</h3>
+                            <p class="sp-feat-card-desc">Accept payments through all major gateways instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sp-section-divider"></div>
+            <!-- THEME SECTION -->
+            <section id="theme" class="sp-dashboard-section">
+                <div class="sp-container">
+                    <div class="sp-two-col">
+                        <div class="sp-col-text">
+                            <h2 class="sp-section-title" style="margin-bottom:1.5rem">Pure Panel<span
+                                    class="sp-text-highlight">
+                                    WordPress Theme</span></h2>
+                            <div style="display:flex;flex-direction:column;gap:1.25rem">
+                                <div class="sp-feature-row">
+                                    <div class="sp-feature-icon"><svg viewBox="0 0 24 24">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                                            <path d="M3 9h18M9 21V9" />
+                                        </svg></div>
+                                    <div>
+                                        <h3 class="sp-feature-title">Easy to Setup</h3>
+                                        <p class="sp-feature-desc">Dashboard, order pages, and user portal</p>
+                                    </div>
+                                </div>
+                                <div class="sp-feature-row">
+                                    <div class="sp-feature-icon"><svg viewBox="0 0 24 24">
+                                            <circle cx="9" cy="21" r="1" />
+                                            <circle cx="20" cy="21" r="1" />
+                                            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.99-1.77L23 6H6" />
+                                        </svg></div>
+                                    <div>
+                                        <h3 class="sp-feature-title">WooCommerce Support</h3>
+                                        <p class="sp-feature-desc">Built-in customer portal and order tracking system.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="sp-feature-row">
+                                    <div class="sp-feature-icon"><svg viewBox="0 0 24 24">
+                                            <circle cx="11" cy="11" r="8" />
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                        </svg></div>
+                                    <div>
+                                        <h3 class="sp-feature-title">SEO Friendly</h3>
+                                        <p class="sp-feature-desc">Built-in SEO optimization for higher search rankings.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://smmpanelwp.com/theme" target="_blank" rel="noopener noreferrer"
+                                class="sp-btn-cta" style="margin-top:1.5rem">Check out Pure Panel Theme →</a>
+                        </div>
+                        <div class="sp-col-img sp-showcase-flair">
+                            <div class="sp-col-img-glow"></div>
+                            <img src="https://smmpanelwp.com/wp-content/uploads/2025/10/Github-Readme-Thumbnail.jpg"
+                                alt="Pure Panel WordPress Theme Preview"
+                                class="sp-glow-border" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sp-section-divider"></div>
+            <!-- PLUGIN SECTION -->
+            <section id="plugin" class="sp-features-section sp-section-alt">
+                <div class="sp-dot-pattern sp-dot-bg"></div>
+                <div class="sp-container" style="position:relative;z-index:10">
+                    <div class="sp-two-col sp-reverse">
+                        <div class="sp-col-text">
+                            <h2 class="sp-section-title" style="margin-bottom:1.5rem">SMM Panel<span
+                                    class="sp-text-highlight">
+                                    Manager Plugin</span></h2>
+                            <div style="display:flex;flex-direction:column;gap:1.25rem">
+                                <div class="sp-feature-row">
+                                    <div class="sp-feature-icon"><svg viewBox="0 0 24 24">
+                                            <circle cx="9" cy="21" r="1" />
+                                            <circle cx="20" cy="21" r="1" />
+                                            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.99-1.77L23 6H6" />
+                                        </svg></div>
+                                    <div>
+                                        <h3 class="sp-feature-title">WooCommerce Integration Built-in</h3>
+                                        <p class="sp-feature-desc">Built-in customer portal and order tracking system.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="sp-feature-row">
+                                    <div class="sp-feature-icon"><svg viewBox="0 0 24 24">
+                                            <polyline points="16 18 22 12 16 6" />
+                                            <polyline points="8 6 2 12 8 18" />
+                                            <line x1="10" y1="19" x2="14" y2="5" />
+                                        </svg></div>
+                                    <div>
+                                        <h3 class="sp-feature-title">API Connectivity Support</h3>
+                                        <p class="sp-feature-desc">API connections to major providers.</p>
+                                    </div>
+                                </div>
+                                <div class="sp-feature-row">
+                                    <div class="sp-feature-icon"><svg viewBox="0 0 24 24">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                                            <path d="M3 9h18M9 21V9" />
+                                        </svg></div>
+                                    <div>
+                                        <h3 class="sp-feature-title">All in One Place</h3>
+                                        <p class="sp-feature-desc">Get notified about the order status on WordPress
+                                            Dashboard.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://smmpanelwp.com/plugin" target="_blank" rel="noopener noreferrer"
+                                class="sp-btn-cta" style="margin-top:1.5rem">Check out SMM Panel Manager Plugin →</a>
+                        </div>
+                        <div class="sp-col-img sp-showcase-flair">
+                            <div class="sp-col-img-glow"></div>
+                            <img src="https://smmpanelwp.com/wp-content/uploads/2025/10/SMM-plugin-desktop-view.png"
+                                alt="SMM Panel Manager Plugin Preview"
+                                class="sp-glow-border" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sp-section-divider"></div>
+            <!-- TESTIMONIALS -->
+            <section class="sp-testimonials-section">
+                <div class="sp-container">
+                    <div class="sp-section-head">
+                        <h2 class="sp-section-title">What Our Users <span class="sp-text-highlight">Say</span></h2>
+                        <p class="sp-section-sub">Join hundreds of successful SMM panel owners.</p>
+                    </div>
+                    <div class="sp-testi-grid">
+                        <div class="sp-glow-card sp-testi-card">
+                            <div class="sp-testi-quote-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+                                    <path
+                                        d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+                                </svg></div>
+                            <div class="sp-stars"><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span></div>
+                            <p class="sp-testi-text">"This theme saved me months of development. Got my panel live in 2
+                                days!"</p>
+                            <p class="sp-testi-name">Alex M.</p>
+                            <p class="sp-testi-role">SMM Panel Owner</p>
+                        </div>
+                        <div class="sp-glow-card sp-testi-card">
+                            <div class="sp-testi-quote-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+                                    <path
+                                        d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+                                </svg></div>
+                            <div class="sp-stars"><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span></div>
+                            <p class="sp-testi-text">"The plugin handles all my API connections. No more manual orders."
+                            </p>
+                            <p class="sp-testi-name">Sarah K.</p>
+                            <p class="sp-testi-role">Digital Marketer</p>
+                        </div>
+                        <div class="sp-glow-card sp-testi-card">
+                            <div class="sp-testi-quote-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+                                    <path
+                                        d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+                                </svg></div>
+                            <div class="sp-stars"><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span><span class="sp-star"><svg viewBox="0 0 24 24">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg></span></div>
+                            <p class="sp-testi-text">"Best investment for my SMM business. Clean, fast, and reliable."
+                            </p>
+                            <p class="sp-testi-name">James R.</p>
+                            <p class="sp-testi-role">Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sp-section-divider"></div>
+            <!-- FOOTER -->
+            <footer class="sp-footer sp-section-alt">
+                <div class="sp-container sp-footer-inner">
+                    <div class="sp-footer-brand">
+                        <div class="sp-footer-brand-row">
+                            <div class="sp-footer-icon"><img
+                                src="/smm panel wordpress logo.png"
+                                alt="SMM Panel logo" /></div>
+                            <span class="sp-footer-brand-name">SMM Panel<span class="sp-text-highlight"> For
+                                    WordPress</span></span>
+                        </div>
+                        <p class="sp-footer-desc">We provide the SMM Panel themes and plugins for WordPress. We proudly
+                            deliver
+                            premium WordPress themes and plugins designed for SMM Panel owners. Built for speed,
+                            security, and
+                            seamless integration, our products help you launch and scale with confidence.</p>
+                    </div>
+                    <div class="sp-footer-links">
+                        <h4 class="sp-footer-col-title">Quick Links</h4>
+                        <a href="#theme">Theme</a>
+                        <a href="#plugin">Plugin</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
